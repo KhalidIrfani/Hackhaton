@@ -107,23 +107,25 @@ const ResponsiveAppBar = () => {
                         The Event Wella
                     </Typography>
                     <Box sx={{ display: { xs: 'none', md: 'flex' }, justifyContent: "center", flexGrow: "1" }}>
-                        <Button sx={{ color: "white", fontFamily: 'monospace', fontWeight: 700, fontSize: "1rem" }}>Home</Button>
+                        <Link href='/'>
+                            <Button sx={{ color: "white", fontFamily: 'monospace', fontWeight: 700, fontSize: "1rem" }}>Home</Button>
+                        </Link>
                         <Button sx={{ color: "white", fontFamily: 'monospace', fontWeight: 700, fontSize: "1rem" }}>About us </Button>
                         <Link href="../Home/CreateEvents">
-                        <Button sx={{ color: "white", fontFamily: 'monospace', fontWeight: 700, fontSize: "1rem" }}>Events</Button>
+                            <Button sx={{ color: "white", fontFamily: 'monospace', fontWeight: 700, fontSize: "1rem" }}>Events</Button>
                         </Link>
                         <Button sx={{ color: "white", fontFamily: 'monospace', fontWeight: 700, fontSize: "1rem" }}>Join Events</Button>
                         <Button sx={{ color: "white", fontFamily: 'monospace', fontWeight: 700, fontSize: "1rem" }}>Our Services</Button>
                     </Box>
 
                     <Box sx={{ flexGrow: 0 }}>
-                       <Link href="../Home/SignUp">
-                       <Button sx={{ color: "white", fontFamily: 'monospace', fontWeight: 700, fontSize: "1rem" }}>Sign Up</Button>
-                       </Link>
+                        <Link href="../Home/SignUp">
+                            <Button sx={{ color: "white", fontFamily: 'monospace', fontWeight: 700, fontSize: "1rem" }}>Sign Up</Button>
+                        </Link>
 
-                       <Link href="../Home/Logs">
-                       <Button sx={{ color: "white", fontFamily: 'monospace', fontWeight: 700, fontSize: "1rem" }}>Login</Button>
-                       </Link>
+                        <Link href="../Home/Logs">
+                            <Button sx={{ color: "white", fontFamily: 'monospace', fontWeight: 700, fontSize: "1rem" }}>Login</Button>
+                        </Link>
                         <Menu
                             sx={{ mt: '45px' }}
                             id="menu-appbar"

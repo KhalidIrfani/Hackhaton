@@ -1,10 +1,12 @@
 import Link from 'next/link';
 import { Box, Button, Checkbox, Container, FormControlLabel, Grid, Typography } from '@mui/material';
 import React, { useState } from 'react';
+import Navbar from '../Components/Navbar'
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useRouter } from 'next/router';
 import { auth } from '../../Firebase/firebaseConfig';
-import { toast } from 'react-toastify/dist/core';
+import { toast } from 'react-toastify';
+import Footer from '../Components/Footer';
 
 
 
@@ -37,6 +39,10 @@ const Login = () => {
 
 
   return (
+
+     <>
+     
+     <Navbar/>
     <Grid container >
       <Grid item md={6} xs={12} marginTop="5rem">
         <Box marginTop={{ xs: "2rem", md: "3rem" }} marginLeft={{ xs: "1.5rem", md: "3rem" }}>
@@ -82,6 +88,8 @@ const Login = () => {
         </Container>
       </Grid>
     </Grid>
+    <Footer/>
+    </>
   );
 }
 

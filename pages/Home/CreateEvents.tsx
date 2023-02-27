@@ -1,13 +1,22 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { Box, Button, Checkbox, Container, FormControlLabel, Grid, Typography } from '@mui/material';
-import { db} from '../../Firebase/firebaseConfig';
-import { addDoc, collection } from 'firebase/firestore';
+import { db } from '../../Firebase/firebaseConfig';
+import { addDoc, collection, Timestamp } from 'firebase/firestore'; // added Timestamp import
 import { useRouter } from 'next/router';
-import { toast } from 'react-toastify/dist/core';
+import { toast } from 'react-toastify';
+import Navbar from '../Components/Navbar'
+import Footer from '../Components/Footer';
 
-
-
-
+interface EventData { // added interface definition
+  eventID: string;
+  eventTitle: string;
+  eventDate: any; // change type as needed
+  eventTime: string;
+  eventLocation: string;
+  eventDescription: string;
+  creator: string;
+  attendees: string[];
+}
 
 const JoinEvents = () => {
 
@@ -21,16 +30,13 @@ const JoinEvents = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [eventData, setEventData] = useState<EventData[]>([]);
 
-
-  //add event data 
-  //  addData in todo 
+  //add event data
   const addData = async (e: any) => {
     e.preventDefault();
     setIsLoading(true);
 
     try {
-
-      const dataRef = collection(db, 'event')
+      const dataRef = collection(db, 'event');
 
       const newData = {
         eventID: eventID,
@@ -41,24 +47,28 @@ const JoinEvents = () => {
         eventDescription: eventDescription,
         creator: currentUser.email,
         attendees: [],
-        
-      }
+      };
 
-      const doc = await addDoc(dataRef, newData)
-      console.log('New todo added with ID:', doc.id);
+      const doc = await addDoc(dataRef, newData);
+      console.log('New event added with ID:', doc.id);
       // Clear the form inputs
+      setEventID("");
+      setEventTitle("");
+      setEventTime("");
+      setEventLocation("");
+      setEventDescription("");
       setIsLoading(false);
       toast.success('Successfully Create Event....');
+    } catch (error) {
+      console.error('Error adding event: ', error);
+      setIsLoading(false);
+      toast.error('Failed to Create Event');
     }
-     catch (error) {
-    console.error('Error adding event: ', error);
-    setIsLoading(false);
-    toast.error('Failed to Create Event');
-  }
-  }
-
+  };
+ 
   return (
     <>
+    <Navbar/>
       <Grid container >
         <Grid item md={6} xs={12} marginTop="7rem">
           <Box marginTop={{ xs: "2rem", md: "3rem" }} marginLeft={{ xs: "1.5rem", md: "3rem" }}>
@@ -101,6 +111,7 @@ const JoinEvents = () => {
           </Container>
         </Grid>
       </Grid>
+      <Footer/>
     </>
   )
 }

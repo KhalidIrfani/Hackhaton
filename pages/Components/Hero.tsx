@@ -6,6 +6,7 @@ import React from 'react'
 import { Grid, Typography, Button } from '@mui/material'
 import { FoodBankOutlined, FastfoodOutlined, NightlifeOutlined } from '@mui/icons-material'
 import Cards from './Cards'
+import Link from 'next/link'
 
 const Hero = () => {
     return (
@@ -25,8 +26,10 @@ const Hero = () => {
                                     consectetur adipiscing <br /> elit  Pellentesque aliquet
                                     libero eu volutpat <br />sss hendrerit,
                                     dolor dui consectetur dolor <br /> leo.</Typography>
-                                <Button sx={{ background: "#EF2779", color: "white", fontSize: { xs: ".77rem", md: ".9rem" }, margin: { xs: "1rem", md: "1rem" }, borderRadius: "2rem", paddingLeft: { xs: "1rem", md: "2rem" }, paddingRight: { xs: "1rem", md: "2rem" } }}>OGANIZE</Button>
-                                <Button sx={{ background: "gray", color: "white", borderRadius: "2rem", paddingLeft: { xs: "1rem", md: "2rem" }, paddingRight: { xs: ".89rem", md: "2rem" } }}>REVIEWS</Button>
+                             <Link href='../Home/CreateEvents'>
+                             <Button sx={{ background: "#EF2779", color: "white", fontSize: { xs: ".77rem", md: ".9rem" }, margin: { xs: "1rem", md: "1rem" }, borderRadius: "2rem", paddingLeft: { xs: "1rem", md: "2rem" }, paddingRight: { xs: "1rem", md: "2rem" } }}>OGANIZE EVENTS</Button>
+                             </Link>
+                                <Button sx={{ background: "gray", color: "white", borderRadius: "2rem", paddingLeft: { xs: "1rem", md: "2rem" }, paddingRight: { xs: ".89rem", md: "2rem" } }}>JOIN EVENTS</Button>
                             </Box>
                         </Grid>
 

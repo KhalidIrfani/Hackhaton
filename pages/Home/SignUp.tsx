@@ -6,6 +6,8 @@ import { auth } from '../../Firebase/firebaseConfig';
 import { toast } from 'react-toastify';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { useRouter } from 'next/router';
+import Navbar from '../Components/Navbar'
+import Footer from '../Components/Footer';
 
 
 
@@ -42,6 +44,8 @@ const SignUp = () => {
 
     }
     return (
+        <>
+        <Navbar/>
         <Grid container >
             <Grid item md={6} xs={12} marginTop="7rem">
                 <Box marginTop={{ xs: "2rem", md: "3rem" }} marginLeft={{ xs: "1.5rem", md: "3rem" }}>
@@ -82,6 +86,8 @@ const SignUp = () => {
                 </Container>
             </Grid>
         </Grid>
+        <Footer/>
+        </>
     );
 }
 export default SignUp;
